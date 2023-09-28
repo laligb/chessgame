@@ -1,0 +1,8 @@
+{%block content%}
+
+<h1>Players</h1>
+{%for player in player_list%}
+<li>
+  <a href="{% url 'registration:player-detail' player.pk %}">{{ player }}</a>
+</li>
+{% endfor %}{% endblock %}

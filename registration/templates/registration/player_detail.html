@@ -1,0 +1,10 @@
+{% block content %}
+<h1>Player Details</h1>
+<dl>
+  <dt>Name:</dt>
+  <dd>{{ player.player.username }}</dd>
+  <dt>Rating:</dt>
+  <dd>{{ player.rating }}</dd>
+</dl>
+<a href="{% url 'registration:index' %}">Back to Player List</a>
+{% endblock %}
