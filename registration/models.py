@@ -8,6 +8,7 @@ class Player(models.Model):
     games_won = models.IntegerField(default=0)
     games_lost = models.IntegerField(default=0)
     games_draw = models.IntegerField(default=0)
+
     #opponents = models.ManyToManyField('self', through="Game",symmetrical=True)
 
     def __str__(self):
