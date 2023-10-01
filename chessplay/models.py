@@ -48,4 +48,4 @@ class PlayerGameHistory(models.Model):
     game = models.ForeignKey(Game, on_delete=models.CASCADE, related_name='games_played')
 
     class Meta:
-        unique_together = ('player', 'game', 'opponent')
+        unique_together = ('player', 'game')

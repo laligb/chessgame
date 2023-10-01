@@ -7,7 +7,7 @@ class GameSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Game
-        fields = ("id", "player_white", "player_black", "moves", "result", "status", "date_played")
+        fields = ("id", "white_player_id", "black_player_id", "player_white", "player_black", "moves", "result", "status", "date_played")
 
     def get_player_white(self, obj):
         return obj.white_player_id.player.username if obj.white_player_id.player else None

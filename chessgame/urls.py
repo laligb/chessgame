@@ -27,11 +27,12 @@ router.register(r"games", game_views.GameView, "games")
 
 urlpatterns = [
     path('chessplay/', include("chessplay.urls")),
-    path('registration/', include("registration.urls")),
+    path('players/', include("registration.urls")),
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls))
+    path('api/v1/', include(router.urls)),
+
 ]
 
 urlpatterns += [
-    path('api/', include('rest_framework.urls')),
+    path('api/v1/', include('rest_framework.urls')),
 ]
