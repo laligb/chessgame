@@ -22,8 +22,7 @@ class PlayerDetailView(generic.DetailView):
     template_name = 'registration/player_detail.html'
     context_object_name = 'player'
 
-
-# create a class for the Todo model viewsets
+# VIEWSETS
 class PlayerView(viewsets.ModelViewSet):
     serializer_class = PlayerSerializer
     queryset = Player.objects.all()
