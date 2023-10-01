@@ -3,6 +3,11 @@ from django.views import generic
 from .models import Player
 from .serializers import PlayerSerializer
 from rest_framework import viewsets
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
+from django.contrib.auth.models import User
+from rest_framework import generics
+
 
 class IndexView(generic.ListView):
     template_name = "registration/index.html"
@@ -20,10 +25,17 @@ class PlayerDetailView(generic.DetailView):
 
 # create a class for the Todo model viewsets
 class PlayerView(viewsets.ModelViewSet):
-
-    # create a serializer class and assign
     serializer_class = PlayerSerializer
-
-    # define a variable and populate it
-    # with the Player list objects
     queryset = Player.objects.all()
+
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
+
+
+class UserList(generics.ListAPIView):
+    queryset = User.objects.all()
+    serializer_class = User
+
+class UserDetail(generics.RetrieveAPIView):
+    queryset = User.objects.all()
+    serializer_class = User

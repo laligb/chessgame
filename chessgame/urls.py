@@ -31,3 +31,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls))
 ]
+
+urlpatterns += [
+    path('api/', include('rest_framework.urls')),
+]
